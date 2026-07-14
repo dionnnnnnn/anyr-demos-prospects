@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kalin Electricite Sarl, succursale de Morges — Electricien à Morges</title>
+<meta name="description" content="Site de démonstration pour Kalin Electricite Sarl, succursale de Morges, electricien à Morges (VD).">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600;700&family=Jost:wght@400;500&display=swap" rel="stylesheet">
+<style>
+* { box-sizing: border-box; }
+:root {
+  --bg: #0D1B2A; --ink: #E0E1DD; --accent: #F4A259; --second: #415A77;
+  --display: 'Cormorant Garamond', serif; --body: 'Jost', sans-serif;
+}
+html { scroll-behavior: smooth; }
+body { margin:0; background:var(--bg); color:var(--ink); font-family:var(--body); line-height:1.5; }
+img { max-width:100%; display:block; }
+a { color:inherit; }
+h1,h2,h3 { font-family:var(--display); margin:0 0 0.5em; line-height:1.1; }
+.demo-banner { background:var(--second); color:var(--ink); font-size:0.78rem; text-align:center; padding:0.5rem 1rem; }
+.demo-banner a { color:var(--accent); text-decoration:underline; }
+header.site-header { display:flex; align-items:center; justify-content:space-between; padding:1.1rem 5vw; position:sticky; top:0; background:var(--bg); z-index:20; border-bottom:1px solid color-mix(in srgb, var(--ink) 15%, transparent); }
+.brand { font-family:var(--display); font-weight:700; font-size:1.3rem; }
+nav.mainnav { display:flex; gap:1.5rem; }
+nav.mainnav a { text-decoration:none; font-size:0.92rem; }
+.btn { display:inline-block; padding:0.75rem 1.4rem; border-radius:4px; text-decoration:none; font-weight:600; font-size:0.92rem; border:2px solid var(--accent); }
+.btn-primary { background:var(--accent); color:var(--bg); }
+.btn-outline { background:transparent; color:var(--ink); }
+.menu-toggle { display:none; background:none; border:2px solid var(--ink); color:var(--ink); padding:0.4rem 0.7rem; border-radius:4px; font-size:1rem; }
+section { padding:4.5rem 5vw; }
+.hero { display:grid; grid-template-columns:1.1fr 1fr; gap:3rem; align-items:center; padding-top:3.5rem; }
+.hero h1 { font-size:clamp(2rem, 4vw, 3.2rem); }
+.hero p.lead { font-size:1.1rem; max-width:44ch; opacity:0.92; }
+.hero-actions { display:flex; gap:1rem; margin-top:1.6rem; flex-wrap:wrap; }
+.hero-img { position:relative; border-radius:6px; overflow:hidden; aspect-ratio:4/5; }
+.hero-img img { width:100%; height:100%; object-fit:cover; }
+.reveal { opacity:0; transform:translateY(24px); transition:opacity 0.6s ease, transform 0.6s ease; }
+.reveal.in { opacity:1; transform:none; }
+.reperes { display:flex; gap:2.5rem; flex-wrap:wrap; background:var(--second); border-radius:8px; }
+.repere { min-width:160px; }
+.repere .num { font-family:var(--display); font-size:1.9rem; }
+.repere .lbl { font-size:0.82rem; opacity:0.75; }
+.cards { display:grid; grid-template-columns:repeat(auto-fit, minmax(220px,1fr)); gap:1.5rem; margin-top:2rem; }
+.card { background:var(--second); padding:1.5rem; border-radius:8px; }
+.card h3 { font-size:1.05rem; }
+.gallery { display:grid; grid-template-columns:repeat(auto-fit, minmax(220px,1fr)); gap:1rem; margin-top:2rem; }
+.gallery figure { margin:0; border-radius:6px; overflow:hidden; }
+.gallery img { width:100%; height:230px; object-fit:cover; }
+.gallery figcaption { font-size:0.78rem; opacity:0.7; padding:0.4rem 0.1rem; }
+.zone ul { display:flex; flex-wrap:wrap; gap:0.6rem 1rem; list-style:none; padding:0; margin-top:1.2rem; }
+.zone li { background:var(--second); padding:0.4rem 0.9rem; border-radius:20px; font-size:0.88rem; }
+.contact-wrap { display:grid; grid-template-columns:1fr 1fr; gap:3rem; }
+form.contact-form { display:grid; gap:0.9rem; }
+form.contact-form input, form.contact-form textarea { padding:0.75rem; border-radius:5px; border:1px solid color-mix(in srgb, var(--ink) 25%, transparent); background:var(--bg); color:var(--ink); font-family:var(--body); }
+.form-status { font-size:0.85rem; opacity:0.75; }
+.contact-info p { margin:0.3rem 0; }
+footer.site-footer { padding:2.5rem 5vw; font-size:0.8rem; opacity:0.75; border-top:1px solid color-mix(in srgb, var(--ink) 15%, transparent); }
+:focus-visible { outline:3px solid var(--accent); outline-offset:2px; }
+@media (prefers-reduced-motion: reduce) { * { transition:none !important; animation:none !important; } }
+@media (max-width:860px) {
+  .hero { grid-template-columns:1fr; }
+  .contact-wrap { grid-template-columns:1fr; }
+  nav.mainnav { display:none; position:absolute; top:100%; left:0; right:0; background:var(--bg); flex-direction:column; padding:1rem 5vw; border-bottom:1px solid color-mix(in srgb, var(--ink) 15%, transparent); }
+  nav.mainnav.open { display:flex; }
+  .menu-toggle { display:inline-block; }
+}
+@media (max-width:360px) {
+  section { padding:3rem 4vw; }
+  .hero h1 { font-size:1.7rem; }
+}
+
+.sig9 { width:110px; height:110px; }
+.hero { grid-template-columns:1fr 0.8fr; }
+.hand-h { transform-origin:60px 60px; animation: tickh 12s linear infinite; }
+.hand-m { transform-origin:60px 60px; animation: tickm 6s linear infinite; }
+@keyframes tickh { from{transform:rotate(0deg);} to{transform:rotate(360deg);} }
+@keyframes tickm { from{transform:rotate(0deg);} to{transform:rotate(-360deg);} }
+.card { border:1px solid var(--second); }
+</style>
+</head>
+<body>
+  <div class="demo-banner">Démonstration réalisée par Anyr, agence web en Suisse romande. <a href="https://anyr.ch" target="_blank" rel="noopener">anyr.ch</a></div>
+  <header class="site-header">
+    <div class="brand">Kalin Electricite Sarl, succursale de Morges</div>
+    <button class="menu-toggle" id="menuToggle" aria-expanded="false" aria-controls="mainnav">Menu</button>
+    <nav class="mainnav" id="mainnav">
+      <a href="#accueil">Accueil</a>
+      <a href="#prestations">Prestations</a>
+      <a href="#realisations">Réalisations</a>
+      <a href="#zone">Zone</a>
+      <a href="#contact">Contact</a>
+      <a class="btn btn-primary" href="tel:+41215527210">Appeler</a>
+    </nav>
+  </header>
+  <main>
+    
+    <section id="accueil" class="hero reveal">
+      <div>
+        <h1>Kalin Electricite Sarl, succursale de Morges</h1>
+        <p class="lead">Une installation électrique aux normes à Morges. Electricien à Morges, intervention rapide et travail soigné.</p>
+        <div class="hero-actions"><a class="btn btn-primary" href="tel:+41215527210">Appeler 021 552 72 10</a><a class="btn btn-outline" href="#contact">Demander un devis</a></div>
+        
+<svg class="sig sig9" viewBox="0 0 120 120" aria-hidden="true">
+  <circle cx="60" cy="60" r="52" fill="none" stroke="#F4A259" stroke-width="2"/>
+  <line x1="60" y1="60" x2="60" y2="25" stroke="#F4A259" stroke-width="3" class="hand-h"/>
+  <line x1="60" y1="60" x2="85" y2="60" stroke="#E0E1DD" stroke-width="2" class="hand-m"/>
+  <circle cx="60" cy="60" r="3" fill="#F4A259"/>
+</svg>
+      </div>
+      <div class="hero-img"><img src="https://images.unsplash.com/photo-1621905251189-08b45d6a269e?auto=format&fit=crop&w=1600&q=70" alt="Électricien installant un câblage avec un casque jaune" width="1200" height="1500"></div>
+    </section>
+    
+    <section id="reperes" class="reperes reveal">
+      <div class="repere"><div class="num">5.0</div><div class="lbl">Note Google (4 avis)</div></div>
+      <div class="repere"><div class="num">Morges</div><div class="lbl">VD</div></div>
+      <div class="repere"><div class="num">021 552 72 10</div><div class="lbl">Téléphone direct</div></div>
+    </section>
+    
+    <section id="prestations" class="reveal">
+      <h2>Prestations</h2>
+      <div class="cards">
+      <div class="card reveal"><h3>Dépannage électrique</h3><p>Intervention dépannage électrique pour particuliers et professionnels à Morges et alentours.</p></div>
+      <div class="card reveal"><h3>Mise aux normes</h3><p>Intervention mise aux normes pour particuliers et professionnels à Morges et alentours.</p></div>
+      <div class="card reveal"><h3>Tableau électrique</h3><p>Intervention tableau électrique pour particuliers et professionnels à Morges et alentours.</p></div>
+      <div class="card reveal"><h3>Éclairage</h3><p>Intervention éclairage pour particuliers et professionnels à Morges et alentours.</p></div>
+      <div class="card reveal"><h3>Bornes de recharge</h3><p>Intervention bornes de recharge pour particuliers et professionnels à Morges et alentours.</p></div></div>
+    </section>
+    <section id="realisations" class="reveal">
+      <h2>Réalisations</h2>
+      <div class="gallery">
+      <figure class="reveal"><img src="https://images.unsplash.com/photo-1621905251918-48416bd8575a?auto=format&fit=crop&w=1600&q=70" alt="Électricien avec casque jaune tenant du matériel" loading="lazy" width="600" height="400"><figcaption>Réalisation illustrative du secteur electricien</figcaption></figure>
+      <figure class="reveal"><img src="https://images.unsplash.com/photo-1618090584126-129cd1f3fbae?auto=format&fit=crop&w=1600&q=70" alt="Gants de travail jaunes et noirs" loading="lazy" width="600" height="400"><figcaption>Réalisation illustrative du secteur electricien</figcaption></figure>
+      <figure class="reveal"><img src="https://images.unsplash.com/photo-1758101755915-462eddc23f57?auto=format&fit=crop&w=1600&q=70" alt="Électricien testant un tableau avec un multimètre" loading="lazy" width="600" height="400"><figcaption>Réalisation illustrative du secteur electricien</figcaption></figure>
+      <figure class="reveal"><img src="https://images.unsplash.com/photo-1615774925655-a0e97fc85c14?auto=format&fit=crop&w=1600&q=70" alt="Technicien en veste grise sur une intervention" loading="lazy" width="600" height="400"><figcaption>Réalisation illustrative du secteur electricien</figcaption></figure></div>
+    </section>
+    
+    <section id="zone" class="zone reveal">
+      <h2>Zone d'intervention</h2>
+      <p>Kalin Electricite Sarl, succursale de Morges intervient à Morges et dans les communes voisines.</p>
+      <ul><li>Morges</li><li>Tolochenaz</li><li>Saint-Prex</li><li>Préverenges</li><li>Lonay</li><li>Échichens</li><li>Vufflens-le-Château</li></ul>
+    </section>
+    <section id="contact" class="reveal">
+      <h2>Contact</h2>
+      <div class="contact-wrap">
+        <form class="contact-form" onsubmit="return false;">
+          <input type="text" name="nom" placeholder="Nom" required>
+          <input type="tel" name="telephone" placeholder="Téléphone" required>
+          <textarea name="message" placeholder="Décrivez votre besoin" rows="4"></textarea>
+          <button type="submit" class="btn btn-primary">Envoyer la demande</button>
+          <p class="form-status">Formulaire de démonstration, non fonctionnel.</p>
+        </form>
+        <div class="contact-info">
+          <p><strong>Téléphone :</strong> <a href="tel:+41215527210">021 552 72 10</a></p>
+          <p><strong>Adresse :</strong> à compléter</p>
+          <p><strong>E-mail :</strong> à compléter</p>
+          <p><strong>Zone :</strong> Morges (VD)</p>
+        </div>
+      </div>
+    </section>
+  </main>
+  <footer class="site-footer">
+    <p>Site de démonstration. Anyr n'est pas affiliée à cette entreprise. Contenu à valider avec le client.</p>
+  </footer>
+  <script>
+  (function() {
+    var toggle = document.getElementById('menuToggle');
+    var nav = document.getElementById('mainnav');
+    toggle && toggle.addEventListener('click', function() {
+      var open = nav.classList.toggle('open');
+      toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+    });
+    var reveals = document.querySelectorAll('.reveal, .sig1');
+    if ('IntersectionObserver' in window) {
+      var io = new IntersectionObserver(function(entries) {
+        entries.forEach(function(e) { if (e.isIntersecting) { e.target.classList.add('in'); } });
+      }, { threshold: 0.15 });
+      reveals.forEach(function(el) { io.observe(el); });
+    } else {
+      reveals.forEach(function(el) { el.classList.add('in'); });
+    }
+  })();
+  </script>
+</body>
+</html>
